@@ -15,7 +15,7 @@ class breathViewModel {
     val currentParameters = parameters.copy()
 
     var listener: BreathFragment? = null
-    var timer: CountDownTimer? = null`
+    var timer: CountDownTimer? = null
 
 
 
@@ -30,9 +30,11 @@ class breathViewModel {
             }
 
             override fun onFinish() {
-
+                listener?.setStartEnabled(true)
             }
         }
+        timer?.start()
+        listener?.setStartEnabled(false)
     }
 
     fun updateSession() {

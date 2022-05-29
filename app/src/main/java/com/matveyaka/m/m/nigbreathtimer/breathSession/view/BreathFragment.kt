@@ -42,6 +42,10 @@ class BreathFragment: Fragment() {
         zadershka.text = viewModel.parameters.inhale.toString()
         zadershka2.text = viewModel.parameters.inhale.toString()
 
+        view.findViewById<Button>(R.id.start_button).setOnClickListener {
+            viewModel.startSession()
+        }
+
 
 
         val startbutton = view.findViewById<Button>(R.id.start_button)
@@ -55,11 +59,15 @@ class BreathFragment: Fragment() {
         val vdoh2 = view?.findViewById<TextView>(R.id.textView8)
         val zadershka2 = view?.findViewById<TextView>(R.id.textView9)
 
-        vdoh.text = newValues.inhale.toString()
-        vdoh2.text = newValues.inhale.toString()
-        zadershka.text = newValues.inhale.toString()
-        zadershka2.text = newValues.inhale.toString()
+        vdoh?.text = newValues.inhale.toString()
+        vdoh2?.text = newValues.inhale.toString()
+        zadershka?.text = newValues.inhale.toString()
+        zadershka2?.text = newValues.inhale.toString()
 
     }
 
+    fun setStartEnabled(value : Boolean) {
+        view?.findViewById<Button>(R.id.start_button)?.isEnabled = value
+
+    }
 }
